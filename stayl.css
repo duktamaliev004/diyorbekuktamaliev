@@ -1,0 +1,23 @@
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    background: white;
+    color: #2a5298;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+.profile {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
