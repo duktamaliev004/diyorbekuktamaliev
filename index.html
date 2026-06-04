@@ -8,7 +8,43 @@
 <link rel="stylesheet" href="stayl.css">
 </head>
 
+
 <body>
+
+<!-- <div class="top-bar">
+  <div id="date"></div>
+
+  <div class="theme-switch" id="themeSwitch">
+    <div class="track">
+      <div class="thumb">
+        <span id="icon">🌙</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="top-datetime">
+    <div id="clock"></div>
+</div> -->
+
+<header class="top-bar">
+
+  <div class="left">
+    <div id="date"></div>
+    <div id="clock"></div>
+  </div>
+
+  <div class="right">
+    <div class="theme-switch" id="themeSwitch">
+      <div class="track">
+        <div class="thumb">
+          <span id="icon">🌙</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
 
 <div class="stars"></div>
 
@@ -65,9 +101,40 @@
 </a>
 </div>
 
-<button onclick="toggleTheme()" class="btn">
+<!-- <button onclick="toggleTheme()" class="btn">
 🌙 Rejim
-</button>
+</button> -->
+
+<!-- <button id="themeToggle" class="theme-toggle">
+  <span id="themeIcon">🌙</span>
+</button> -->
+
+<!-- <div class="theme-switch" id="themeSwitch">
+  <div class="track">
+    <div class="thumb">
+      <span id="icon">🌙</span>
+    </div>
+  </div>
+</div> -->
+
+<div class="settings">
+  <h3>⚙️ Settings</h3>
+
+  <div class="item" id="themeSwitch">
+    <span>Theme</span>
+    <div class="switch">
+      <div class="thumb" id="thumb">
+        <span id="icon">🌙</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="themes">
+    <button onclick="setTheme('light')">☀️ Light</button>
+    <button onclick="setTheme('dark')">🌙 Dark</button>
+    <button onclick="setTheme('neon')">⚡ Neon</button>
+  </div>
+</div>
 
 <a href="diyorbekuktamaliev_CV.pdf"
 download
@@ -89,6 +156,14 @@ Email yuborish
 </a>
 
 </div>
+
+<!-- <div class="card">
+    <h2>🕒 Vaqt va Sana</h2>
+
+    <p id="clock"></p>
+
+    <p id="date"></p>
+</div> -->
 
 <div class="card">
 
@@ -118,17 +193,17 @@ Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
 
 <div class="card">
 <h2>🌙 Oy</h2>
-<img src="oy1.jpg" class="astro">
+<img src="oy1.jpg" class="gallery-img" onclick="openImage(this.src)">
 </div>
 
 <div class="card">
 <h2>🪐 Yupiter</h2>
-<img src="yupiter.jpg" class="astro">
+<img src="yupiter.jpg" class="gallery-img" onclick="openImage(this.src)">
 </div>
 
 <div class="card">
 <h2>🌌 Andromeda</h2>
-<img src="Andromeda.jpg" class="astro">
+<img src="Andromeda.jpg" class="gallery-img" onclick="openImage(this.src)">
 </div>
 
 <div class="card">
@@ -173,14 +248,6 @@ Qo'ng'iroq qilish
 
 </div>
 
-<div class="card">
-
-<h2>⏰ Toshkent vaqti</h2>
-
-<h1 id="clock"></h1>
-
-</div>
-
 <footer>
 
 <p>
@@ -191,28 +258,26 @@ Qo'ng'iroq qilish
 
 <script>
 
-function updateClock() {
+function updateDateTime(){
 
     const now = new Date();
 
-    document.getElementById("clock").innerHTML =
-    now.toLocaleTimeString('uz-UZ', {
+    const time = now.toLocaleTimeString('uz-UZ', {
         hour12: false
     });
 
+    const date = now.toLocaleDateString('uz-UZ');
+
+    document.getElementById("clock").innerHTML =
+    "🕒 " + time;
+
+    document.getElementById("date").innerHTML =
+    "📅 " + date;
 }
 
-setInterval(updateClock, 1000);
+setInterval(updateDateTime, 1000);
 
-updateClock();
-
-</script>
-
-<script>
-
-function toggleTheme(){
-document.body.classList.toggle("light");
-}
+updateDateTime();
 
 </script>
 
@@ -226,6 +291,8 @@ bars.forEach(bar => {
 
     let current = 0;
 
+    bar.style.width = "0%";
+
     const timer = setInterval(() => {
 
         if(current >= target){
@@ -236,15 +303,501 @@ bars.forEach(bar => {
 
             current++;
 
+            bar.style.width = current + "%";
             bar.textContent = current + "%";
 
         }
 
-    }, 20);
+    }, 25);
 
 });
 
 </script>
 
+<div id="lightbox" onclick="closeImage()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+
+function openImage(src){
+
+    document.getElementById("lightbox").style.display = "flex";
+
+    document.getElementById("lightbox-img").src = src;
+
+}
+
+function closeImage(){
+
+    document.getElementById("lightbox").style.display = "none";
+
+}
+
+</script>
+
+<script>
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('uz-UZ', {
+        hour12: false
+    });
+
+    const date = now.toLocaleDateString('uz-UZ');
+
+    document.getElementById("clock").innerHTML =
+    "🕒 " + time;
+
+    document.getElementById("date").innerHTML =
+    "📅 " + date;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+</script>
+
+<script>
+
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+}
+
+</script>
+
+<!-- <script>
+const btn = document.getElementById("themeToggle");
+const icon = document.getElementById("themeIcon");
+
+/* system theme aniqlash */
+function getSystemTheme() {
+  return window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+/* apply theme */
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    icon.textContent = "☀️";
+  } else {
+    document.body.classList.remove("dark");
+    icon.textContent = "🌙";
+  }
+}
+
+/* init */
+window.onload = () => {
+  const saved = localStorage.getItem("theme");
+
+  if (saved) {
+    applyTheme(saved);
+  } else {
+    applyTheme(getSystemTheme());
+  }
+};
+
+/* toggle click */
+btn.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("dark");
+
+  if (isDark) {
+    applyTheme("light");
+    localStorage.setItem("theme", "light");
+  } else {
+    applyTheme("dark");
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+/* system theme change listener */
+window.matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    const saved = localStorage.getItem("theme");
+    if (!saved) {
+      applyTheme(e.matches ? "dark" : "light");
+    }
+  });
+</script> -->
+
+<!-- <script>
+const switchBtn = document.getElementById("themeSwitch");
+const icon = document.getElementById("icon");
+
+/* system theme */
+function systemTheme() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+/* apply theme */
+function apply(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    icon.textContent = "☀️";
+  } else {
+    document.body.classList.remove("dark");
+    icon.textContent = "🌙";
+  }
+}
+
+/* INIT */
+const saved = localStorage.getItem("theme");
+apply(saved || systemTheme());
+
+/* CLICK */
+switchBtn.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("dark");
+
+  if (isDark) {
+    apply("light");
+    localStorage.setItem("theme", "light");
+  } else {
+    apply("dark");
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+/* system change sync */
+window.matchMedia("(prefers-color-scheme: dark)")
+.addEventListener("change", (e) => {
+  if (!localStorage.getItem("theme")) {
+    apply(e.matches ? "dark" : "light");
+  }
+});
+</script> -->
+
+<!-- <!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diyorbek Uktamaliyev</title>
+
+<link rel="stylesheet" href="stayl.css">
+</head>
+
+
+<body>
+
+<!-- <div class="top-bar">
+  <div id="date"></div>
+
+  <div class="theme-switch" id="themeSwitch">
+    <div class="track">
+      <div class="thumb">
+        <span id="icon">🌙</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="top-datetime">
+    <div id="clock"></div>
+</div> -->
+
+<!-- <header class="top-bar">
+
+  <div class="left">
+    <div id="date"></div>
+    <div id="clock"></div>
+  </div>
+
+  <div class="right">
+    <div class="theme-switch" id="themeSwitch">
+      <div class="track">
+        <div class="thumb">
+          <span id="icon">🌙</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<div class="stars"></div>
+
+<header class="hero">
+
+<img src="diyorbek.png.png" alt="Diyorbek" class="profile">
+
+<h1>Diyorbek Uktamaliyev</h1>
+
+<p class="subtitle">
+🌌 Astronomy Enthusiast | 💻 Future Developer | ⚽ Football Lover
+</p>
+
+</header> -->
+
+<!-- <div class="card">
+
+    <h2>📊 Til bilimlarim</h2>
+
+    <p>🇺🇿 O'zbek tili</p>
+    <div class="progress">
+        <div class="bar uzbek" data-percent="100">0%</div>
+    </div>
+
+    <p>🇷🇺 Rus tili</p>
+    <div class="progress">
+        <div class="bar russian" data-percent="100">0%</div>
+    </div>
+
+    <p>🇹🇯 Tojik tili</p>
+    <div class="progress">
+        <div class="bar tajik" data-percent="100">0%</div>
+    </div>
+
+    <p>🇬🇧 Ingliz tili</p>
+    <div class="progress">
+        <div class="bar english" data-percent="80">0%</div>
+    </div>
+
+    <p>🇮🇹 Italyan tili</p>
+    <div class="progress">
+        <div class="bar italian" data-percent="25">0%</div>
+    </div>
+
+</div>
+
+</div>
+
+<div class="card">
+    <h2>📍 Joylashuv</h2>
+    <p>Andijan Region, Uzbekistan 🇺🇿</p>
+    <a href="https://maps.app.goo.gl/FhrJ4dPvUnBvp7PA7" class="btn" target="_blank">
+    📍 Xaritada ko'rish
+</a>
+</div> -->
+
+  <!-- <button onclick="toggleTheme()" class="btn">
+🌙 Rejim
+</button> -->
+
+<!-- <button id="themeToggle" class="theme-toggle">
+  <span id="themeIcon">🌙</span>
+</button> -->
+
+<!-- <div class="theme-switch" id="themeSwitch">
+  <div class="track">
+    <div class="thumb">
+      <span id="icon">🌙</span>
+    </div>
+  </div>
+</div> -->
+
+<div class="settings">
+  <h3>⚙️ Settings</h3>
+
+  <div class="item" id="themeSwitch">
+    <span>Theme</span>
+    <div class="switch">
+      <div class="thumb" id="thumb">
+        <span id="icon">🌙</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="themes">
+    <button onclick="setTheme('light')">☀️ Light</button>
+    <button onclick="setTheme('dark')">🌙 Dark</button>
+    <button onclick="setTheme('neon')">⚡ Neon</button>
+  </div>
+</div> 
+
+<!-- <a href="diyorbekuktamaliev_CV.pdf"
+download
+class="btn"> -->
+
+<!-- 📄 CV yuklab olish
+
+</a>
+
+<div class="card">
+
+<h2>📧 Menga yozing</h2> -->
+
+<!-- <a href="mailto:duktamaliev@gmail.com
+class="btn">
+
+Email yuborish
+
+</a>
+
+</div> --> 
+
+<!-- <div class="card">
+    <h2>🕒 Vaqt va Sana</h2>
+
+    <p id="clock"></p>
+
+    <p id="date"></p>
+</div> -->
+
+<!-- <div class="card">
+
+<h2>👨‍💻 Men haqimda</h2>
+
+<p>
+Assalomu alaykum!
+
+Men Diyorbek Uktamaliyevman.
+
+Astronomiya, texnologiya va dasturlashga qiziqaman.
+
+Bo‘sh vaqtimda futbol o‘ynayman, kitob o‘qiyman va osmonni kuzataman.
+</p>
+
+</div> -->
+
+<!-- <div class="card">
+
+<h2>🌌 Astronomiya</h2>
+
+<p>
+Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
+</p>
+
+</div>
+
+<div class="card">
+<h2>🌙 Oy</h2>
+<img src="oy1.jpg" class="gallery-img" onclick="openImage(this.src)">
+</div>
+
+<div class="card">
+<h2>🪐 Yupiter</h2>
+<img src="yupiter.jpg" class="gallery-img" onclick="openImage(this.src)">
+</div> -->
+
+<!-- <div class="card">
+<h2>🌌 Andromeda</h2>
+<img src="Andromeda.jpg" class="gallery-img" onclick="openImage(this.src)">
+</div>
+
+<div class="card">
+
+<h2>📸 Astronomiya Galereyasi</h2>
+
+<div class="gallery">
+
+<img src="1.jpg" alt="Redmi">
+
+<img src="2.png" alt="Note">
+
+<img src="3.png" alt="12">
+
+<img src="4.png" alt="telefonim">
+
+<img src="5.jpg" alt="bilan">
+
+</div> -->
+
+<!-- </div>
+
+<div class="card">
+
+<h2>📱 Men bilan bog'lanish</h2>
+
+<a href="https://t.me/diyorbekuktamaliyev" class="btn" target="_blank">
+Telegram
+</a>
+
+<a href="https://instagram.com/diyorbekuktamaliev" class="btn" target="_blank">
+Instagram
+</a>
+
+<a href="https://wa.me/998777827004" class="btn" target="_blank">
+WhatsApp
+</a>
+
+<a href="tel:+998777827004" class="btn">
+Qo'ng'iroq qilish
+</a>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 Diyorbek Uktamaliyev
+</p> -->
+
+<!-- </footer>  -->
+
+<script>
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('uz-UZ', {
+        hour12: false
+    });
+
+    const date = now.toLocaleDateString('uz-UZ');
+
+    document.getElementById("clock").innerHTML =
+    "🕒 " + time;
+
+    document.getElementById("date").innerHTML =
+    "📅 " + date;
+}
+
+setInterval(updateDateTime, 1000);
+
+updateDateTime();
+
+/* THEME */
+const btn = document.getElementById("themeSwitch");
+const icon = document.getElementById("icon");
+
+function setTheme(mode) {
+  document.body.classList.remove("dark", "light");
+  document.body.classList.add(mode);
+
+  if (mode === "dark") icon.textContent = "☀️";
+  else icon.textContent = "🌙";
+
+  localStorage.setItem("theme", mode);
+}
+
+btn.addEventListener("click", () => {
+  if (document.body.classList.contains("dark")) {
+    setTheme("light");
+  } else {
+    setTheme("dark");
+  }
+});
+
+/* LOAD */
+setTheme(localStorage.getItem("theme") || "light");
+
+</script>
+
+<!-- <script>
+function updateTime() {
+  const now = new Date();
+
+  document.getElementById("date").textContent =
+    now.toLocaleDateString();
+
+  document.getElementById("clock").textContent =
+    now.toLocaleTimeString();
+}
+
+updateTime();
+setInterval(updateTime, 1000); -->
+
+
+</script>
+
 </body>
 </html>
+ 
