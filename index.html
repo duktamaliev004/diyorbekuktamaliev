@@ -5,46 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diyorbek Uktamaliyev</title>
 
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0b1020">
+
+<link rel="icon" href="icon-192.png">
+
 <link rel="stylesheet" href="stayl.css">
 </head>
 
 
-<body>
+<!-- <body> -->
 
-<!-- <div class="top-bar">
-  <div id="date"></div>
+<body class="light">
 
-  <div class="theme-switch" id="themeSwitch">
-    <div class="track">
-      <div class="thumb">
-        <span id="icon">🌙</span>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="bg"></div>
 
-    <div class="top-datetime">
-    <div id="clock"></div>
-</div> -->
+<div class="clouds"></div>
 
 <header class="top-bar">
 
-  <div class="left">
-    <div id="date"></div>
-    <div id="clock"></div>
+  <!-- <div class="lang">
+    <button>🇺🇿</button>
+    <button>🇷🇺</button>
+    <button>🇬🇧</button>
+    <button>🇮🇹</button>
+  </div> -->
+
+  <div class="lang">
+  <button class="btnn" class="btn" class="btn lang uzbek" onclick="setLang('uz')">
+    <span class="flag">🇺🇿</span> Uzbek
+  </button>
+  <button class="btnn" class="btn" class="btn lang russian" onclick="setLang('ru')">
+    <span class="flag">🇷🇺</span> Russian
+  </button>
+  <button class="btnn" class="btn" class="btn lang english" onclick="setLang('en')">
+     <span class="flag">🇬🇧</span> English
+    </button>
+  <button class="btnn" class="btn" class="btn lang italian" onclick="setLang('it')">
+    <span class="flag">🇮🇹</span> Italian
+  </button>
+</div> 
+
+  <div class="visitors">
+    👥 <span id="visitors">0</span>
   </div>
 
-  <div class="right">
-    <div class="theme-switch" id="themeSwitch">
-      <div class="track">
-        <div class="thumb">
-          <span id="icon">🌙</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="date">📅 05/06/2026</div>
+
+  <div id="clock">🕒 19:15</div>
+
+<button class="btn" id="installBtn">📲</button>
+
+<!-- <button id="themeSwitch">🌙</button> -->
+<button onclick="toggleTheme()" class="btn" id="themeSwitch">🌙 Rejim</button>
 
 </header>
+
 
 <div class="stars"></div>
 
@@ -52,142 +69,101 @@
 
 <img src="diyorbek.png.png" alt="Diyorbek" class="profile">
 
-<h1>Diyorbek Uktamaliyev</h1>
+<h1 data-i18n="title">Diyorbek Uktamaliyev</h1>
 
-<p class="subtitle">
-🌌 Astronomy Enthusiast | 💻 Future Developer | ⚽ Football Lover
-</p>
-
+<p data-i18n="subtitle">🌌 Astronomy Enthusiast | 💻 Future Developer | ⚽ Football Lover</p>
 </header>
 
 <div class="card">
 
-    <h2>📊 Til bilimlarim</h2>
 
-    <p>🇺🇿 O'zbek tili</p>
+
+    <!-- <h2>📊 Til bilimlarim</h2> -->
+
+     <h2 data-i18n="skills">📊 Til bilimlarim</h2>
+
+
+
+    <!-- <p>🇺🇿 O'zbek tili</p> -->
+
+     <p data-i18n="uzbek">🇺🇿 O'zbek tili</p>
+
     <div class="progress">
+
         <div class="bar uzbek" data-percent="100">0%</div>
+
     </div>
 
-    <p>🇷🇺 Rus tili</p>
+
+
+    <!-- <p>🇷🇺 Rus tili</p> -->
+
+     <p data-i18n="russian">🇷🇺 Rus tili</p>
+
     <div class="progress">
+
         <div class="bar russian" data-percent="100">0%</div>
+
     </div>
 
-    <p>🇹🇯 Tojik tili</p>
+
+
+    <!-- <p>🇹🇯 Tojik tili</p> -->
+
+     <p data-i18n="tajik">🇹🇯 Tojik tili</p>
+
     <div class="progress">
+
         <div class="bar tajik" data-percent="100">0%</div>
+
     </div>
 
-    <p>🇬🇧 Ingliz tili</p>
+
+
+    <!-- <p>🇬🇧 Ingliz tili</p> -->
+
+    <p data-i18n="english">🇬🇧 Ingliz tili</p>
+
     <div class="progress">
+
         <div class="bar english" data-percent="80">0%</div>
+
     </div>
 
-    <p>🇮🇹 Italyan tili</p>
+
+
+    <!-- <p>🇮🇹 Italyan tili</p> -->
+
+     <p data-i18n="italian">🇮🇹 Italyan tili</p>
+
     <div class="progress">
+
         <div class="bar italian" data-percent="25">0%</div>
+
     </div>
 
-</div>
+
 
 </div>
 
-<div class="card">
-    <h2>📍 Joylashuv</h2>
-    <p>Andijan Region, Uzbekistan 🇺🇿</p>
-    <a href="https://maps.app.goo.gl/FhrJ4dPvUnBvp7PA7" class="btn" target="_blank">
-    📍 Xaritada ko'rish
-</a>
+
+
 </div>
 
-<!-- <button onclick="toggleTheme()" class="btn">
-🌙 Rejim
-</button> -->
-
-<!-- <button id="themeToggle" class="theme-toggle">
-  <span id="themeIcon">🌙</span>
-</button> -->
-
-<!-- <div class="theme-switch" id="themeSwitch">
-  <div class="track">
-    <div class="thumb">
-      <span id="icon">🌙</span>
-    </div>
-  </div>
-</div> -->
-
-<div class="settings">
-  <h3>⚙️ Settings</h3>
-
-  <div class="item" id="themeSwitch">
-    <span>Theme</span>
-    <div class="switch">
-      <div class="thumb" id="thumb">
-        <span id="icon">🌙</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="themes">
-    <button onclick="setTheme('light')">☀️ Light</button>
-    <button onclick="setTheme('dark')">🌙 Dark</button>
-    <button onclick="setTheme('neon')">⚡ Neon</button>
-  </div>
-</div>
-
-<a href="diyorbekuktamaliev_CV.pdf"
-download
-class="btn">
-
-📄 CV yuklab olish
-
-</a>
 
 <div class="card">
 
-<h2>📧 Menga yozing</h2>
+ <h2 data-i18n="about"></h2>
 
-<a href="mailto:duktamaliev@gmail.com
-class="btn">
-
-Email yuborish
-
-</a>
-
-</div>
-
-<!-- <div class="card">
-    <h2>🕒 Vaqt va Sana</h2>
-
-    <p id="clock"></p>
-
-    <p id="date"></p>
-</div> -->
-
-<div class="card">
-
-<h2>👨‍💻 Men haqimda</h2>
-
-<p>
-Assalomu alaykum!
-
-Men Diyorbek Uktamaliyevman.
-
-Astronomiya, texnologiya va dasturlashga qiziqaman.
-
-Bo‘sh vaqtimda futbol o‘ynayman, kitob o‘qiyman va osmonni kuzataman.
-</p>
+<p data-i18n="aboutText"></p>
 
 </div>
 
 <div class="card">
 
-<h2>🌌 Astronomiya</h2>
+ <h2 data-i18n="astro"></h2>
 
-<p>
-Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
-</p>
+<p data-i18n="astroText"></p>
 
 </div>
 
@@ -208,7 +184,7 @@ Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
 
 <div class="card">
 
-<h2>📸 Astronomiya Galereyasi</h2>
+<h2 data-i18n="gallery"></h2>
 
 <div class="gallery">
 
@@ -228,7 +204,7 @@ Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
 
 <div class="card">
 
-<h2>📱 Men bilan bog'lanish</h2>
+ <h2 data-i18n="contact"></h2>
 
 <a href="https://t.me/diyorbekuktamaliyev" class="btn" target="_blank">
 Telegram
@@ -368,435 +344,120 @@ function toggleTheme() {
 
 </script>
 
-<!-- <script>
-const btn = document.getElementById("themeToggle");
-const icon = document.getElementById("themeIcon");
+<script>
+let deferredPrompt;
 
-/* system theme aniqlash */
-function getSystemTheme() {
-  return window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 
-/* apply theme */
-function applyTheme(theme) {
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    icon.textContent = "☀️";
-  } else {
-    document.body.classList.remove("dark");
-    icon.textContent = "🌙";
-  }
-}
-
-/* init */
-window.onload = () => {
-  const saved = localStorage.getItem("theme");
-
-  if (saved) {
-    applyTheme(saved);
-  } else {
-    applyTheme(getSystemTheme());
-  }
-};
-
-/* toggle click */
-btn.addEventListener("click", () => {
-  const isDark = document.body.classList.contains("dark");
-
-  if (isDark) {
-    applyTheme("light");
-    localStorage.setItem("theme", "light");
-  } else {
-    applyTheme("dark");
-    localStorage.setItem("theme", "dark");
-  }
+  const btn = document.getElementById("installBtn");
+  if (btn) btn.style.display = "block";
 });
 
-/* system theme change listener */
-window.matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", (e) => {
-    const saved = localStorage.getItem("theme");
-    if (!saved) {
-      applyTheme(e.matches ? "dark" : "light");
-    }
-  });
-</script> -->
+window.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("installBtn");
 
-<!-- <script>
-const switchBtn = document.getElementById("themeSwitch");
-const icon = document.getElementById("icon");
-
-/* system theme */
-function systemTheme() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
-/* apply theme */
-function apply(theme) {
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    icon.textContent = "☀️";
-  } else {
-    document.body.classList.remove("dark");
-    icon.textContent = "🌙";
-  }
-}
-
-/* INIT */
-const saved = localStorage.getItem("theme");
-apply(saved || systemTheme());
-
-/* CLICK */
-switchBtn.addEventListener("click", () => {
-  const isDark = document.body.classList.contains("dark");
-
-  if (isDark) {
-    apply("light");
-    localStorage.setItem("theme", "light");
-  } else {
-    apply("dark");
-    localStorage.setItem("theme", "dark");
+  if (btn) {
+    btn.onclick = async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt = null;
+      } else {
+        alert("Install faqat Chrome Android’da ishlaydi 📱");
+      }
+    };
   }
 });
-
-/* system change sync */
-window.matchMedia("(prefers-color-scheme: dark)")
-.addEventListener("change", (e) => {
-  if (!localStorage.getItem("theme")) {
-    apply(e.matches ? "dark" : "light");
-  }
-});
-</script> -->
-
-<!-- <!DOCTYPE html>
-<html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diyorbek Uktamaliyev</title>
-
-<link rel="stylesheet" href="stayl.css">
-</head>
-
-
-<body>
-
-<!-- <div class="top-bar">
-  <div id="date"></div>
-
-  <div class="theme-switch" id="themeSwitch">
-    <div class="track">
-      <div class="thumb">
-        <span id="icon">🌙</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <div class="top-datetime">
-    <div id="clock"></div>
-</div> -->
-
-<!-- <header class="top-bar">
-
-  <div class="left">
-    <div id="date"></div>
-    <div id="clock"></div>
-  </div>
-
-  <div class="right">
-    <div class="theme-switch" id="themeSwitch">
-      <div class="track">
-        <div class="thumb">
-          <span id="icon">🌙</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</header>
-
-<div class="stars"></div>
-
-<header class="hero">
-
-<img src="diyorbek.png.png" alt="Diyorbek" class="profile">
-
-<h1>Diyorbek Uktamaliyev</h1>
-
-<p class="subtitle">
-🌌 Astronomy Enthusiast | 💻 Future Developer | ⚽ Football Lover
-</p>
-
-</header> -->
-
-<!-- <div class="card">
-
-    <h2>📊 Til bilimlarim</h2>
-
-    <p>🇺🇿 O'zbek tili</p>
-    <div class="progress">
-        <div class="bar uzbek" data-percent="100">0%</div>
-    </div>
-
-    <p>🇷🇺 Rus tili</p>
-    <div class="progress">
-        <div class="bar russian" data-percent="100">0%</div>
-    </div>
-
-    <p>🇹🇯 Tojik tili</p>
-    <div class="progress">
-        <div class="bar tajik" data-percent="100">0%</div>
-    </div>
-
-    <p>🇬🇧 Ingliz tili</p>
-    <div class="progress">
-        <div class="bar english" data-percent="80">0%</div>
-    </div>
-
-    <p>🇮🇹 Italyan tili</p>
-    <div class="progress">
-        <div class="bar italian" data-percent="25">0%</div>
-    </div>
-
-</div>
-
-</div>
-
-<div class="card">
-    <h2>📍 Joylashuv</h2>
-    <p>Andijan Region, Uzbekistan 🇺🇿</p>
-    <a href="https://maps.app.goo.gl/FhrJ4dPvUnBvp7PA7" class="btn" target="_blank">
-    📍 Xaritada ko'rish
-</a>
-</div> -->
-
-  <!-- <button onclick="toggleTheme()" class="btn">
-🌙 Rejim
-</button> -->
-
-<!-- <button id="themeToggle" class="theme-toggle">
-  <span id="themeIcon">🌙</span>
-</button> -->
-
-<!-- <div class="theme-switch" id="themeSwitch">
-  <div class="track">
-    <div class="thumb">
-      <span id="icon">🌙</span>
-    </div>
-  </div>
-</div> -->
-
-<div class="settings">
-  <h3>⚙️ Settings</h3>
-
-  <div class="item" id="themeSwitch">
-    <span>Theme</span>
-    <div class="switch">
-      <div class="thumb" id="thumb">
-        <span id="icon">🌙</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="themes">
-    <button onclick="setTheme('light')">☀️ Light</button>
-    <button onclick="setTheme('dark')">🌙 Dark</button>
-    <button onclick="setTheme('neon')">⚡ Neon</button>
-  </div>
-</div> 
-
-<!-- <a href="diyorbekuktamaliev_CV.pdf"
-download
-class="btn"> -->
-
-<!-- 📄 CV yuklab olish
-
-</a>
-
-<div class="card">
-
-<h2>📧 Menga yozing</h2> -->
-
-<!-- <a href="mailto:duktamaliev@gmail.com
-class="btn">
-
-Email yuborish
-
-</a>
-
-</div> --> 
-
-<!-- <div class="card">
-    <h2>🕒 Vaqt va Sana</h2>
-
-    <p id="clock"></p>
-
-    <p id="date"></p>
-</div> -->
-
-<!-- <div class="card">
-
-<h2>👨‍💻 Men haqimda</h2>
-
-<p>
-Assalomu alaykum!
-
-Men Diyorbek Uktamaliyevman.
-
-Astronomiya, texnologiya va dasturlashga qiziqaman.
-
-Bo‘sh vaqtimda futbol o‘ynayman, kitob o‘qiyman va osmonni kuzataman.
-</p>
-
-</div> -->
-
-<!-- <div class="card">
-
-<h2>🌌 Astronomiya</h2>
-
-<p>
-Men Redmi Note 12 telefonim bilan yulduzlarni kuzataman.
-</p>
-
-</div>
-
-<div class="card">
-<h2>🌙 Oy</h2>
-<img src="oy1.jpg" class="gallery-img" onclick="openImage(this.src)">
-</div>
-
-<div class="card">
-<h2>🪐 Yupiter</h2>
-<img src="yupiter.jpg" class="gallery-img" onclick="openImage(this.src)">
-</div> -->
-
-<!-- <div class="card">
-<h2>🌌 Andromeda</h2>
-<img src="Andromeda.jpg" class="gallery-img" onclick="openImage(this.src)">
-</div>
-
-<div class="card">
-
-<h2>📸 Astronomiya Galereyasi</h2>
-
-<div class="gallery">
-
-<img src="1.jpg" alt="Redmi">
-
-<img src="2.png" alt="Note">
-
-<img src="3.png" alt="12">
-
-<img src="4.png" alt="telefonim">
-
-<img src="5.jpg" alt="bilan">
-
-</div> -->
-
-<!-- </div>
-
-<div class="card">
-
-<h2>📱 Men bilan bog'lanish</h2>
-
-<a href="https://t.me/diyorbekuktamaliyev" class="btn" target="_blank">
-Telegram
-</a>
-
-<a href="https://instagram.com/diyorbekuktamaliev" class="btn" target="_blank">
-Instagram
-</a>
-
-<a href="https://wa.me/998777827004" class="btn" target="_blank">
-WhatsApp
-</a>
-
-<a href="tel:+998777827004" class="btn">
-Qo'ng'iroq qilish
-</a>
-
-</div>
-
-<footer>
-
-<p>
-© 2026 Diyorbek Uktamaliyev
-</p> -->
-
-<!-- </footer>  -->
+</script>
 
 <script>
+  fetch("https://api.countapi.xyz/hit/diyorbek-ultra/visits")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visitors").innerText = data.value;
+  });
+</script>
 
-function updateDateTime(){
-
-    const now = new Date();
-
-    const time = now.toLocaleTimeString('uz-UZ', {
-        hour12: false
-    });
-
-    const date = now.toLocaleDateString('uz-UZ');
-
-    document.getElementById("clock").innerHTML =
-    "🕒 " + time;
-
-    document.getElementById("date").innerHTML =
-    "📅 " + date;
-}
-
-setInterval(updateDateTime, 1000);
-
-updateDateTime();
-
-/* THEME */
-const btn = document.getElementById("themeSwitch");
-const icon = document.getElementById("icon");
-
-function setTheme(mode) {
-  document.body.classList.remove("dark", "light");
-  document.body.classList.add(mode);
-
-  if (mode === "dark") icon.textContent = "☀️";
-  else icon.textContent = "🌙";
-
+<script>
+  function setTheme(mode){
+  document.body.className = mode;
   localStorage.setItem("theme", mode);
 }
 
-btn.addEventListener("click", () => {
-  if (document.body.classList.contains("dark")) {
-    setTheme("light");
-  } else {
-    setTheme("dark");
-  }
-});
+window.onload = () => {
+  setTheme(localStorage.getItem("theme") || "dark");
+};
 
-/* LOAD */
-setTheme(localStorage.getItem("theme") || "light");
-
+document.getElementById("themeSwitch").onclick = () => {
+  if(document.body.classList.contains("dark")) setTheme("light");
+  else if(document.body.classList.contains("light")) setTheme("neon");
+  else setTheme("dark");
+};
 </script>
 
-<!-- <script>
-function updateTime() {
-  const now = new Date();
-
-  document.getElementById("date").textContent =
-    now.toLocaleDateString();
-
-  document.getElementById("clock").textContent =
-    now.toLocaleTimeString();
+<script>
+function setTheme(mode){
+  document.body.classList.remove("dark", "light", "neon");
+  document.body.classList.add(mode);
+  localStorage.setItem("theme", mode);
 }
-
-updateTime();
-setInterval(updateTime, 1000); -->
-
-
 </script>
+
+<script>
+  window.onload = () => {
+  const saved = localStorage.getItem("theme") || "dark";
+  setTheme(saved);
+};
+</script>
+
+<script>
+  function setTheme(theme) {
+  document.body.classList.remove("light", "dark", "neon");
+  document.body.classList.add(theme);
+}
+</script>
+
+<script>
+  function setTheme(theme) {
+    document.body.className = theme;
+}
+</script>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
+<script>
+const buttons = document.querySelectorAll(".btnn");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // hammasidan active olib tashlaymiz
+    buttons.forEach(b => b.classList.remove("active"));
+
+    // bosilganga active qo‘shamiz
+    btn.classList.add("active");
+
+  });
+});
+</script>
+
+<script>
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+</script>
+
+<script src="i18n.js"></script>
 
 </body>
 </html>
